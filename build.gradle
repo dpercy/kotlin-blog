@@ -24,7 +24,7 @@ buildscript {
 sourceSets {
     main.java.srcDirs += 'src'
     main.kotlin.srcDirs += 'src'
-    mainClassName = 'MainKT'
+    mainClassName = 'MainKt'
 }
 
 dependencies {
