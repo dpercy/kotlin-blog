@@ -1,4 +1,3 @@
-package core
 
 class MainKT {
     companion object {
