@@ -17,7 +17,19 @@ DONE
 - insert data into mongodb
 
 TODO
-- reverse a URL
+- create a model layer
+  - use Kotlin data class
+  - automatically serialize to and from Json?
+    - queries are still done in raw json
+
+- add a couple more features
+  - commenting
+  - logging in
+
+- try using thymeleaf templates
+   - but how do you share code between views while keeping it "natural" (previewable)?
+
+- reverse a URL? does spark have this concept?
 
 - fix template resolution??
   - avoid specifying src/templates/ before each one

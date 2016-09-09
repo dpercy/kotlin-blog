@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="add8e5ad-586c-402f-9e1c-1054f470e5b7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/templates/posts.html" afterPath="$PROJECT_DIR$/resources/templates/posts.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/Main.kt" afterPath="$PROJECT_DIR$/src/core/Main.kt" />
     </list>
     <ignored path="blog.iws" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="Main.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/core/Main.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="396">
+              <caret line="29" column="86" selection-start-line="29" selection-start-column="86" selection-end-line="29" selection-end-column="86" />
               <folding>
                 <element signature="e#0#228#0" expanded="true" />
               </folding>
@@ -887,8 +886,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Main.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="396">
+          <caret line="29" column="86" selection-start-line="29" selection-start-column="86" selection-end-line="29" selection-end-column="86" />
           <folding>
             <element signature="e#0#228#0" expanded="true" />
           </folding>
