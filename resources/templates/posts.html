@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Posts</title>
+
+    <style>
+        .new-post-form input,
+        .new-post-form textarea {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <h1>Posts</h1>
@@ -15,5 +22,13 @@
             </li>
         {{/posts}}
     </ol>
+<form class="new-post-form" action="/posts" method="POST">
+    <h2>New Post</h2>
+    <input type="text" name="title" placeholder="Title">
+    <input type="text" name="author" placeholder="Your name">
+    <textarea name="body" placeholder="Type your message here">
+    </textarea>
+    <input type="Submit" value="post">
+</form>
 </body>
 </html>
