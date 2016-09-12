@@ -91,6 +91,17 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/org.litote.kmongo/kmongo/3.3.3/8b87c40d819391031c9ae7abf718474032193954/kmongo-3.3.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/org.litote.kmongo/kmongo/3.3.3/940bdec575e574a818a43c366bbf3474f6854ee5/kmongo-3.3.3-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
           <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-runtime/1.0.3/10f40d016700cf4287e49fa1d51c2a8507e9b946/kotlin-runtime-1.0.3.jar!/"/>
         </CLASSES>
         <JAVADOC/>
@@ -162,6 +173,94 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/org.mongodb/mongodb-driver-core/3.3.0/c3a5f99c133f5fd33931862d9640b8a7c92bf8c0/mongodb-driver-core-3.3.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/org.litote.kmongo/kmongo-shared/3.3.3/1570d0ca861d11a0247b9d2491d7239417cbe6e6/kmongo-shared-3.3.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/org.litote.kmongo/kmongo-shared/3.3.3/6201eec9848e8f653f709d226c2e47dd99f7f672/kmongo-shared-3.3.3-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/org.mongodb/mongo-java-driver/3.3.0/7d6c104620558aa9c1d5c9f06fccfefe34de5604/mongo-java-driver-3.3.0.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/org.mongodb/mongo-java-driver/3.3.0/4ebe2ddf24fdb88a53b44dd23ee51157eb5af9cb/mongo-java-driver-3.3.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.0.3/ed9cbaeb8dccd2027348185044012aac145a5c61/kotlin-reflect-1.0.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.0.3/9a9fd906bc3ea1ee644e286a0778ebeb9a4e5edb/kotlin-reflect-1.0.3-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/de.undercouch/bson4jackson/2.7.0/7864788c9fc02ae62538477d1ef3abb057e80640/bson4jackson-2.7.0.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/de.undercouch/bson4jackson/2.7.0/8998a1ff0812dff94dc4ffd10f15e6b2fa23a1e7/bson4jackson-2.7.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.8.1/649b29bb196d9b680d62bd004264e373ca2d0530/jackson-module-kotlin-2.8.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.8.1/5f02605ec2192c882a0e00d1f8b55b84f8e3ebe0/jackson-module-kotlin-2.8.1-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.1/c04eb2cc599cd1742889bfa7cc41878db0d152f5/jackson-databind-2.8.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.1/a092a9ab43476c8f8073c0b7f55ffb030d845207/jackson-databind-2.8.1-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.0/45b426f7796b741035581a176744d91090e2e6fb/jackson-annotations-2.8.0.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.0/29a1a95363d497e856c0a7d682e4f7973e334068/jackson-annotations-2.8.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.1/fd13b1c033741d48291315c6370f7d475a42dccf/jackson-core-2.8.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/dpercy/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.1/efcd4976d0d52d1ab9a4f4f40f727ed518d6070c/jackson-core-2.8.1-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>

@@ -45,6 +45,7 @@ dependencies {
 
     // mongodb
     compile "org.mongodb:mongodb-driver:3.3.0"
+    compile "org.litote.kmongo:kmongo:3.3.3"
 }
 
 // If your project uses Kotlin reflection or testing facilities,

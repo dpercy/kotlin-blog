@@ -1,10 +1,10 @@
 import com.mongodb.MongoClient
 import com.mongodb.MongoClientURI
-import org.bson.Document
 import spark.*
 import spark.Spark.*
 import spark.debug.DebugScreen.enableDebugScreen
 import spark.template.mustache.MustacheTemplateEngine
+import org.litote.kmongo.*
 
 /*
 
@@ -18,6 +18,7 @@ DONE
 
 TODO
 - create a model layer
+  - http://litote.org/kmongo/
   - use Kotlin data class
   - automatically serialize to and from Json?
     - queries are still done in raw json
@@ -35,6 +36,11 @@ TODO
   - avoid specifying src/templates/ before each one
 
  */
+
+data class Post(
+    val title: String,
+    val author: String,
+    val body: String)
 
 var mongoClient: MongoClient? = null
 
@@ -55,23 +61,22 @@ fun greet(request: Request?, response: Response?): ModelAndView {
 }
 
 fun posts(request: Request?, response: Response?): ModelAndView {
-    val postsCollection = mongoClient!!.getDatabase("test").getCollection("posts")
+    val postsCollection = mongoClient!!.getDatabase("test").getCollection<Post>("posts")
+    val posts: List<Post> = postsCollection.find().toList()
 
     val context: Map<String, Any> = hashMapOf(
-            "posts" to postsCollection.find().toList()
+        "posts" to posts
     )
     return ModelAndView(context, "resources/templates/posts.html")
 }
 
 fun newPost(request: Request?, response: Response?): Unit {
-    val postsCollection = mongoClient!!.getDatabase("test").getCollection("posts")
+    val postsCollection = mongoClient!!.getDatabase("test").getCollection<Post>("posts")
 
-    val fields: Map<String, String> = hashMapOf(
-        "title" to request!!.queryParams("title"),
-        "author" to request!!.queryParams("author"),
-        "body" to request!!.queryParams("body")
-    )
-    val newPost = Document(fields)
+    val newPost = Post(
+        title=request!!.queryParams("title"),
+        author=request!!.queryParams("author"),
+        body=request!!.queryParams("body"))
     postsCollection.insertOne(newPost)
 
     response!!.redirect("/posts")
@@ -80,7 +85,9 @@ fun newPost(request: Request?, response: Response?): Unit {
 
 fun main(args: Array<String>) {
     val mte = MustacheTemplateEngine()
-    mongoClient = MongoClient(MongoClientURI("mongodb://localhost:27017"))
+    // Note it's importants to use KMongo.createClient instead of new MongoClient here.
+    // KMongo tells the driver how to convert classes to BSON and back (it passes in some "codecs").
+    mongoClient = KMongo.createClient(MongoClientURI("mongodb://localhost:27017"))
 
     get("/", ::index, mte)
     get("/greet/:name", ::greet, mte)
