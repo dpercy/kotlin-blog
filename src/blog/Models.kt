@@ -3,19 +3,14 @@ package blog
 import com.mongodb.MongoClient
 import com.mongodb.MongoClientURI
 import com.mongodb.client.MongoCollection
+import core.MongoDB
 import org.litote.kmongo.*
 
-class BlogDB {
-    companion object {
-        lateinit var mongoClient: MongoClient
+object BlogDB {
+    val db = MongoDB.conn.getDatabase("blog")
 
-        fun connect() {
-            mongoClient = KMongo.createClient(MongoClientURI("mongodb://localhost:27017"))
-        }
-
-        val posts: MongoCollection<Post>
-        get() = mongoClient.getDatabase("test").getCollection<Post>("posts")
-    }
+    val posts: MongoCollection<Post>
+        get() = db.getCollection<Post>("posts")
 }
 
 data class Post(

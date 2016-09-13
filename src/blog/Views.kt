@@ -7,19 +7,9 @@ import spark.Response
 
 fun index(request: Request, response: Response): ModelAndView {
     val context = hashMapOf(
-            "title" to "blog",
-            "body" to "blah blah blah"
+        "username" to request.session().attribute<String>("username")
     )
     return ModelAndView(context, "resources/templates/index.html")
-}
-
-
-fun greet(request: Request, response: Response): ModelAndView {
-    val name = request.params("name")
-    val context = hashMapOf(
-            "name" to name
-    )
-    return ModelAndView(context, "resources/templates/greet.html")
 }
 
 

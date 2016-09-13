@@ -1,4 +1,4 @@
-package blog
+package core
 
 import spark.*
 
@@ -11,6 +11,10 @@ fun <T> sparkRequest(handler: (Request, Response) -> T): (Request?, Response?) -
 
 fun get(path: String, handler: (Request, Response) -> ModelAndView, te: TemplateEngine) {
     return Spark.get(path, sparkRequest(handler), te)
+}
+
+fun <T> get(path: String, handler: (Request, Response) -> T) {
+    return Spark.get(path, sparkRequest(handler))
 }
 
 fun <T> post(path: String, handler: (Request, Response) -> T) {

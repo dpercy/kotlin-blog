@@ -5,8 +5,29 @@
     <title>{{title}}</title>
 </head>
 <body>
-    <h1>{{title}}</h1>
-    {{body}}
+    <a href="/posts">Posts</a>
+
+    {{#username}}
+        Hello, {{username}}
+        <form action="/logout" method="POST">
+            <input type="submit" value="Log Out">
+        </form>
+    {{/username}}
+    {{^username}}
+        log in:
+        <form action="/login" method="POST">
+            <input name="username" placeholder="username">
+            <input type="password" name="password" placeholder="password">
+            <input type="submit">
+        </form>
+
+        sign up:
+        <form action="/signup" method="POST">
+            <input name="username" placeholder="username">
+            <input type="password" name="password" placeholder="password">
+            <input type="submit">
+        </form>
+    {{/username}}
 
 </body>
 </html>

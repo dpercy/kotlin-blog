@@ -1,0 +1,7 @@
+<root>
+  <item name='spark.Spark void halt(int, java.lang.String)'>
+    <annotation name='org.jetbrains.annotations.Contract'>
+      <val val="&quot;_, _ -&gt; fail&quot;"/>
+    </annotation>
+  </item>
+</root>

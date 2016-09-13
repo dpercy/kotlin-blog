@@ -4,6 +4,7 @@ import com.mongodb.MongoClient
 import com.mongodb.MongoClientURI
 import spark.*
 import spark.debug.DebugScreen.enableDebugScreen
+import spark.servlet.SparkApplication
 import spark.template.mustache.MustacheTemplateEngine
 
 
@@ -38,7 +39,12 @@ TODO
 
  */
 fun main(args: Array<String>) {
-    BlogDB.connect()
-    mount(MustacheTemplateEngine())
+    mountUrls(MustacheTemplateEngine())
     enableDebugScreen()
+}
+
+public class JettyMain : SparkApplication {
+    override fun init() {
+        main(arrayOf())
+    }
 }

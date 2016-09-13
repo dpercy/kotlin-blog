@@ -6,12 +6,16 @@ apply plugin: 'kotlin'
 apply plugin: 'application'
 apply plugin: 'idea'
 
+
 sourceCompatibility = 1.8
 
 println System.properties.'java.home'
 
 repositories {
     mavenCentral()
+    maven {
+        url "http://repository.jetbrains.com/kotlin-nosql"
+    }
 }
 
 buildscript {
@@ -28,12 +32,6 @@ sourceSets {
     main.java.srcDirs += 'src'
     main.kotlin.srcDirs += 'src'
     mainClassName = 'blog/MainKt'
-}
-
-repositories {
-    maven {
-        url "http://repository.jetbrains.com/kotlin-nosql"
-    }
 }
 
 dependencies {
