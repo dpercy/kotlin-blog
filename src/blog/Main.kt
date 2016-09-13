@@ -5,7 +5,6 @@ import com.mongodb.MongoClientURI
 import spark.*
 import spark.debug.DebugScreen.enableDebugScreen
 import spark.template.mustache.MustacheTemplateEngine
-import org.litote.kmongo.*
 
 /*
 
@@ -38,12 +37,6 @@ TODO
 
  */
 
-data class Post(
-    val title: String,
-    val author: String,
-    val body: String
-)
-
 var mongoClient: MongoClient? = null
 
 fun index(request: Request, response: Response): ModelAndView {
@@ -63,23 +56,17 @@ fun greet(request: Request, response: Response): ModelAndView {
 }
 
 fun posts(request: Request, response: Response): ModelAndView {
-    val postsCollection = mongoClient!!.getDatabase("test").getCollection<Post>("posts")
-    val posts: List<Post> = postsCollection.find().toList()
-
     val context: Map<String, Any> = hashMapOf(
-        "posts" to posts
+        "posts" to BlogDB.posts.find().toList()
     )
     return ModelAndView(context, "resources/templates/posts.html")
 }
 
 fun newPost(request: Request, response: Response): Unit {
-    val postsCollection = mongoClient!!.getDatabase("test").getCollection<Post>("posts")
-
-    val newPost = Post(
+    BlogDB.posts.insertOne(Post(
         title=request.queryParams("title"),
         author=request.queryParams("author"),
-        body=request.queryParams("body"))
-    postsCollection.insertOne(newPost)
+        body=request.queryParams("body")))
 
     response.redirect("/posts")
 }
@@ -87,9 +74,7 @@ fun newPost(request: Request, response: Response): Unit {
 
 fun main(args: Array<String>) {
     val mte = MustacheTemplateEngine()
-    // Note it's important to use KMongo.createClient instead of new MongoClient here.
-    // KMongo tells the driver how to convert classes to BSON and back (it passes in some "codecs").
-    mongoClient = KMongo.createClient(MongoClientURI("mongodb://localhost:27017"))
+    BlogDB.connect()
 
     get("/", ::index, mte)
     get("/greet/:name", ::greet, mte)
