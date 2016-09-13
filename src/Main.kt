@@ -37,14 +37,22 @@ TODO
 
  */
 
+/*
+    Shim to make a request handler accept non-nullable Request and Response arguments.
+ */
+fun <T> sparkRequest(handler: (Request, Response) -> T): (Request?, Response?) -> T {
+    return { req: Request?, resp: Response? -> handler(req!!, resp!!) }
+}
+
 data class Post(
     val title: String,
     val author: String,
-    val body: String)
+    val body: String
+)
 
 var mongoClient: MongoClient? = null
 
-fun index(request: Request?, response: Response?): ModelAndView {
+fun index(request: Request, response: Response): ModelAndView {
     val context = hashMapOf(
         "title" to "blog",
         "body" to "blah blah blah"
@@ -52,15 +60,15 @@ fun index(request: Request?, response: Response?): ModelAndView {
     return ModelAndView(context, "resources/templates/index.html")
 }
 
-fun greet(request: Request?, response: Response?): ModelAndView {
-    val name = request!!.params("name")
+fun greet(request: Request, response: Response): ModelAndView {
+    val name = request.params("name")
     val context = hashMapOf(
         "name" to name
     )
     return ModelAndView(context, "resources/templates/greet.html")
 }
 
-fun posts(request: Request?, response: Response?): ModelAndView {
+fun posts(request: Request, response: Response): ModelAndView {
     val postsCollection = mongoClient!!.getDatabase("test").getCollection<Post>("posts")
     val posts: List<Post> = postsCollection.find().toList()
 
@@ -70,16 +78,16 @@ fun posts(request: Request?, response: Response?): ModelAndView {
     return ModelAndView(context, "resources/templates/posts.html")
 }
 
-fun newPost(request: Request?, response: Response?): Unit {
+fun newPost(request: Request, response: Response): Unit {
     val postsCollection = mongoClient!!.getDatabase("test").getCollection<Post>("posts")
 
     val newPost = Post(
-        title=request!!.queryParams("title"),
-        author=request!!.queryParams("author"),
-        body=request!!.queryParams("body"))
+        title=request.queryParams("title"),
+        author=request.queryParams("author"),
+        body=request.queryParams("body"))
     postsCollection.insertOne(newPost)
 
-    response!!.redirect("/posts")
+    response.redirect("/posts")
 }
 
 
@@ -89,10 +97,11 @@ fun main(args: Array<String>) {
     // KMongo tells the driver how to convert classes to BSON and back (it passes in some "codecs").
     mongoClient = KMongo.createClient(MongoClientURI("mongodb://localhost:27017"))
 
-    get("/", ::index, mte)
-    get("/greet/:name", ::greet, mte)
-    get("/posts", ::posts, mte)
-    post("/posts", ::newPost)
+
+    get("/", sparkRequest(::index), mte)
+    get("/greet/:name", sparkRequest(::greet), mte)
+    get("/posts", sparkRequest(::posts), mte)
+    post("/posts", sparkRequest(::newPost))
 
     enableDebugScreen()
 }
