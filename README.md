@@ -14,5 +14,5 @@ Queries in the Java driver are very similar to the mongo shell.  To avoid callin
 `blog/Models.kt` defines the BlogDB helper and the Post class.  The `data class Post` definition is similar to namedtuple in Python: it automatically creates a useful constructor, equals, hashCode, and toString.   But in Kotlin it has the extra advantage of letting you specify types for the fields, and letting you add mutable fields (also I'm not using this last feature).
 
 The `auth/Models.kt` and `auth/Views.kt` files define the Users collection and the signup, login, logout views.  A couple neat things in `auth/Views.kt`
-- The `a ?: b` operator is short for `a == null ? a : b`.  In Python you would use `or` for this pattern; in Kotlin it's more type safe but still concise.
+- The `a ?: b` operator is short for `a != null ? a : b`.  In Python you would use `or` for this pattern; in Kotlin it's more type safe but still concise.
 - In Spark, `halt(Int, String)` throws an exception that makes the request return immediately.  However, Kotlin doesn't know that this function always throws / never returns normally.  So as a hack I've written `return halt(403, "msg")`.  It might be possible to wrap this function so Kotlin understands its control-flow behavior.  (Similar to `core/Routing.kt`, which wraps some Spark functions to tell Kotlin that they deal with non-null values.)
