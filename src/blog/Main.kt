@@ -1,7 +1,8 @@
+package blog
+
 import com.mongodb.MongoClient
 import com.mongodb.MongoClientURI
 import spark.*
-import spark.Spark.*
 import spark.debug.DebugScreen.enableDebugScreen
 import spark.template.mustache.MustacheTemplateEngine
 import org.litote.kmongo.*
@@ -36,13 +37,6 @@ TODO
   - avoid specifying src/templates/ before each one
 
  */
-
-/*
-    Shim to make a request handler accept non-nullable Request and Response arguments.
- */
-fun <T> sparkRequest(handler: (Request, Response) -> T): (Request?, Response?) -> T {
-    return { req: Request?, resp: Response? -> handler(req!!, resp!!) }
-}
 
 data class Post(
     val title: String,
@@ -93,15 +87,14 @@ fun newPost(request: Request, response: Response): Unit {
 
 fun main(args: Array<String>) {
     val mte = MustacheTemplateEngine()
-    // Note it's importants to use KMongo.createClient instead of new MongoClient here.
+    // Note it's important to use KMongo.createClient instead of new MongoClient here.
     // KMongo tells the driver how to convert classes to BSON and back (it passes in some "codecs").
     mongoClient = KMongo.createClient(MongoClientURI("mongodb://localhost:27017"))
 
-
-    get("/", sparkRequest(::index), mte)
-    get("/greet/:name", sparkRequest(::greet), mte)
-    get("/posts", sparkRequest(::posts), mte)
-    post("/posts", sparkRequest(::newPost))
+    get("/", ::index, mte)
+    get("/greet/:name", ::greet, mte)
+    get("/posts", ::posts, mte)
+    post("/posts", ::newPost)
 
     enableDebugScreen()
 }

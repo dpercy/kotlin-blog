@@ -27,7 +27,13 @@ buildscript {
 sourceSets {
     main.java.srcDirs += 'src'
     main.kotlin.srcDirs += 'src'
-    mainClassName = 'MainKt'
+    mainClassName = 'blog/MainKt'
+}
+
+repositories {
+    maven {
+        url "http://repository.jetbrains.com/kotlin-nosql"
+    }
 }
 
 dependencies {
@@ -46,6 +52,7 @@ dependencies {
     // mongodb
     compile "org.mongodb:mongodb-driver:3.3.0"
     compile "org.litote.kmongo:kmongo:3.3.3"
+    compile 'org.jetbrains.kotlin:kotlin-nosql-mongodb:0.1-SNAPSHOT'
 }
 
 // If your project uses Kotlin reflection or testing facilities,
