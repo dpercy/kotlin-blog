@@ -25,9 +25,6 @@ DONE
     - queries are still done in raw json
 
 TODO
-- add a couple more features
-  - commenting
-  - logging in
 
 - try using thymeleaf templates
    - but how do you share code between views while keeping it "natural" (previewable)?
@@ -41,10 +38,4 @@ TODO
 fun main(args: Array<String>) {
     mountUrls(MustacheTemplateEngine())
     enableDebugScreen()
-}
-
-public class JettyMain : SparkApplication {
-    override fun init() {
-        main(arrayOf())
-    }
 }
