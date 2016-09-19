@@ -2,35 +2,35 @@
 <html xnlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="#{title}">Example title here</title>
+    <title th:text="${title}">Example title here</title>
 </head>
 <body>
     <a href="/posts">Posts</a>
 
-    <!--{{#username}}-->
-        Hello, <span th:text="#{username}">JohnSmith123</span>
-        <form action="/logout" method="POST">
-            <input type="submit" value="Log Out">
-        </form>
-    <!--{{/username}}-->
+    <div th:switch="${username}">
+        <div th:case="null">
+            log in:
+            <form action="/login" method="POST">
+                <input name="username" placeholder="username">
+                <input type="password" name="password" placeholder="password">
+                <input type="submit">
+            </form>
 
-    <!--
-    {{^username}}
-        log in:
-        <form action="/login" method="POST">
-            <input name="username" placeholder="username">
-            <input type="password" name="password" placeholder="password">
-            <input type="submit">
-        </form>
+            sign up:
+            <form action="/signup" method="POST">
+                <input name="username" placeholder="username">
+                <input type="password" name="password" placeholder="password">
+                <input type="submit">
+            </form>
+        </div>
+        <div th:case="*">
+            Hello, <span th:text="${username}">JohnSmith123</span>
+            <form action="/logout" method="POST">
+                <input type="submit" value="Log Out">
+            </form>
+        </div>
+    </div>
 
-        sign up:
-        <form action="/signup" method="POST">
-            <input name="username" placeholder="username">
-            <input type="password" name="password" placeholder="password">
-            <input type="submit">
-        </form>
-    {{/username}}
-    -->
 
 </body>
 </html>

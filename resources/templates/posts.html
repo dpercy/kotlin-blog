@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Posts</title>
@@ -13,14 +13,12 @@
 </head>
 <body>
     <h1>Posts</h1>
-    <ol>
-        {{#posts}}
-            <li>
-                <h3>{{title}}</h3>
-                <em>{{author}}</em>
-                <p>{{body}}</p>
-            </li>
-        {{/posts}}
+    <ol th:each="post : ${posts}">
+        <li>
+            <h3 th:text="${post.title}">First post!</h3>
+            <em th:text="${post.author}">JohnSmith123</em>
+            <p th:text="${post.body}">This is where the post text goes. This is just a mockup, but in real life there would be text here. It would be really interesting. It would have many sentences and would word wrap, and some sentences would be extra long, hopefully long enough to test the layout that the designer wants.</p>
+        </li>
     </ol>
 <form class="new-post-form" action="/posts" method="POST">
     <h2>New Post</h2>

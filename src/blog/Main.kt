@@ -9,7 +9,7 @@ import spark.*
 import spark.debug.DebugScreen.enableDebugScreen
 import spark.servlet.SparkApplication
 import spark.template.mustache.MustacheTemplateEngine
-
+import spark.template.thymeleaf.ThymeleafTemplateEngine
 
 
 /*
@@ -41,18 +41,6 @@ TODO
  */
 
 
-
-class ThymeleafTemplateEngine: spark.TemplateEngine() {
-    val te = TemplateEngine()
-
-    override fun render(mav: ModelAndView): String {
-//        te.setTemplateResolver(DefaultTemplateResolver())
-        val context = Context()
-        context.setVariables(mav.model as Map<String, Any>)
-
-        return te.process(mav.viewName, context)
-    }
-}
 
 
 fun main(args: Array<String>) {

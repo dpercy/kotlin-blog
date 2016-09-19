@@ -8,9 +8,9 @@ import spark.Response
 fun index(request: Request, response: Response): ModelAndView {
     val context = hashMapOf(
         "title" to "Blog homepage",
-        "username" to (request.session().attribute<String>("username") ?: "(nobody)")
+        "username" to request.session().attribute<String>("username")
     )
-    return ModelAndView(context, "resources/templates/index.html")
+    return ModelAndView(context, "index")
 }
 
 
@@ -18,7 +18,7 @@ fun posts(request: Request, response: Response): ModelAndView {
     val context = hashMapOf(
         "posts" to BlogDB.posts.find().toList()
     )
-    return ModelAndView(context, "resources/templates/posts.html")
+    return ModelAndView(context, "posts")
 }
 
 
