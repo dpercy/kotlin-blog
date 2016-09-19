@@ -13,12 +13,12 @@ import spark.TemplateEngine
  * Created by dpercy on 9/12/16.
  */
 
-fun mountUrls(te: TemplateEngine) {
+fun mountUrls(te: TemplateEngine, te2: ThymeleafTemplateEngine) {
     post("/login", ::login)
     post("/logout", ::logout)
     post("/signup", ::signup)
 
-    get("/", ::index, te)
+    get("/", ::index, te2)
     get("/posts", ::posts, te)
     post("/posts", ::newPost)
 }

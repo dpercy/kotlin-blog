@@ -47,6 +47,9 @@ dependencies {
     compile "com.github.spullara.mustache.java:compiler:0.9.3"
     compile "com.sparkjava:spark-template-mustache:1.0.0"
 
+    // thymeleaf templates
+    compile "org.thymeleaf:thymeleaf:3.0.1.RELEASE"
+
     // mongodb
     compile "org.mongodb:mongodb-driver:3.3.0"
     compile "org.litote.kmongo:kmongo:3.3.3"

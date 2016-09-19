@@ -7,7 +7,8 @@ import spark.Response
 
 fun index(request: Request, response: Response): ModelAndView {
     val context = hashMapOf(
-        "username" to request.session().attribute<String>("username")
+        "title" to "Blog homepage",
+        "username" to (request.session().attribute<String>("username") ?: "(nobody)")
     )
     return ModelAndView(context, "resources/templates/index.html")
 }

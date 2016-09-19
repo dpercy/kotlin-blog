@@ -2,10 +2,14 @@ package blog
 
 import com.mongodb.MongoClient
 import com.mongodb.MongoClientURI
+import org.thymeleaf.TemplateEngine
+import org.thymeleaf.context.Context
+import org.thymeleaf.templateresolver.DefaultTemplateResolver
 import spark.*
 import spark.debug.DebugScreen.enableDebugScreen
 import spark.servlet.SparkApplication
 import spark.template.mustache.MustacheTemplateEngine
+
 
 
 /*
@@ -35,7 +39,25 @@ TODO
   - avoid specifying src/templates/ before each one
 
  */
+
+
+
+class ThymeleafTemplateEngine: spark.TemplateEngine() {
+    val te = TemplateEngine()
+
+    override fun render(mav: ModelAndView): String {
+//        te.setTemplateResolver(DefaultTemplateResolver())
+        val context = Context()
+        context.setVariables(mav.model as Map<String, Any>)
+
+        return te.process(mav.viewName, context)
+    }
+}
+
+
 fun main(args: Array<String>) {
-    mountUrls(MustacheTemplateEngine())
+
+
+    mountUrls(MustacheTemplateEngine(), ThymeleafTemplateEngine())
     enableDebugScreen()
 }
