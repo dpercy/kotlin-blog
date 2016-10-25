@@ -21,10 +21,12 @@ fun login(request: Request, response: Response) {
     // The password is correct: log the user in.
     request.session(true)
     request.session().attribute("username", username)
+    response.redirect("/")
 }
 
 fun logout(request: Request, response: Response) {
     request.session().removeAttribute("username")
+    response.redirect("/")
 }
 
 fun signup(request: Request, response: Response) {
@@ -32,7 +34,10 @@ fun signup(request: Request, response: Response) {
     val password = request.queryParams("password")
 
     // TODO use a captcha to prevent user enumeration
+    // TODO actually, there is a bug here because usernames don't have to be unique!
     AuthDB.users.insertOne(User.fromPlaintext(username, password))
 
     // also add the user to the session
+    request.session().attribute("username", username)
+    response.redirect("/")
 }
