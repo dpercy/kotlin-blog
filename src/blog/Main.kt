@@ -1,14 +1,6 @@
 package blog
 
-import com.mongodb.MongoClient
-import com.mongodb.MongoClientURI
-import org.thymeleaf.TemplateEngine
-import org.thymeleaf.context.Context
-import org.thymeleaf.templateresolver.DefaultTemplateResolver
-import spark.*
 import spark.debug.DebugScreen.enableDebugScreen
-import spark.servlet.SparkApplication
-import spark.template.mustache.MustacheTemplateEngine
 import spark.template.thymeleaf.ThymeleafTemplateEngine
 
 
@@ -30,6 +22,10 @@ DONE
 
 TODO
 
+- try porting someone else's mockup to thymeleaf templates
+  - see ~/Downloads/animus-blog-template
+  - need to deal with static files too
+
 - try using thymeleaf templates
    - but how do you share code between views while keeping it "natural" (previewable)?
 
@@ -46,6 +42,6 @@ TODO
 fun main(args: Array<String>) {
 
 
-    mountUrls(MustacheTemplateEngine(), ThymeleafTemplateEngine())
+    mountUrls(ThymeleafTemplateEngine())
     enableDebugScreen()
 }

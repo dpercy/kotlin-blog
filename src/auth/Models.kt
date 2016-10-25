@@ -5,11 +5,7 @@ import com.mongodb.client.MongoDatabase
 import core.MongoDB
 import org.litote.kmongo.getCollection
 import java.security.MessageDigest
-import java.time.Instant
 import java.util.*
-import com.mongodb.client.model.Filters.*;
-import core.findOne
-import spark.Request
 
 
 object AuthDB {
@@ -27,7 +23,6 @@ fun hashPassword(password: String, salt: String): ByteArray {
     val md = MessageDigest.getInstance("SHA-256")
     return md.digest(saltedPassword.toByteArray(charset("utf-8")))
 }
-
 
 
 // TODO what about indexes?

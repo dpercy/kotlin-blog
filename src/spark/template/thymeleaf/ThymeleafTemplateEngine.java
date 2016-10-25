@@ -35,7 +35,7 @@ import spark.TemplateEngine;
  */
 public class ThymeleafTemplateEngine extends TemplateEngine {
 
-    private static final String DEFAULT_PREFIX = "resources/templates/";
+    private static final String DEFAULT_PREFIX = "templates/";
     private static final String DEFAULT_SUFFIX = ".html";
     private static final String DEFAULT_TEMPLATE_MODE = "XHTML";
     private static final long DEFAULT_CACHE_TTL_MS = 3600000L;
@@ -93,7 +93,7 @@ public class ThymeleafTemplateEngine extends TemplateEngine {
     }
 
     private static ITemplateResolver createDefaultTemplateResolver(String prefix, String suffix) {
-        final FileTemplateResolver templateResolver = new FileTemplateResolver(); // dpercy: changed from upstream
+        final ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
         templateResolver.setTemplateMode(TemplateMode.HTML);
 
         templateResolver.setPrefix(

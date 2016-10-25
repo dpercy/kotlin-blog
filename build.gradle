@@ -31,6 +31,7 @@ buildscript {
 sourceSets {
     main.java.srcDirs += 'src'
     main.kotlin.srcDirs += 'src'
+    main.resources.srcDirs += 'resources'
     mainClassName = 'blog/MainKt'
 }
 
@@ -42,10 +43,6 @@ dependencies {
     compile "com.sparkjava:spark-core:2.5"
     compile "com.sparkjava:spark-debug-tools:0.5"
     compile "org.slf4j:slf4j-simple:1.7.21"
-
-    // mustache templates
-    compile "com.github.spullara.mustache.java:compiler:0.9.3"
-    compile "com.sparkjava:spark-template-mustache:1.0.0"
 
     // thymeleaf templates
     compile "org.thymeleaf:thymeleaf:3.0.1.RELEASE"

@@ -1,11 +1,10 @@
 package auth
 
-import core.*
-import org.litote.kmongo.findOne
-import spark.*
-import spark.Spark.*
-import com.mongodb.client.model.Filters.*;
-import org.bson.conversions.Bson
+import com.mongodb.client.model.Filters.eq
+import core.findOne
+import spark.Request
+import spark.Response
+import spark.Spark.halt
 
 
 fun login(request: Request, response: Response) {

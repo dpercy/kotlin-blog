@@ -1,10 +1,8 @@
 package blog
 
-import com.mongodb.MongoClient
-import com.mongodb.MongoClientURI
 import com.mongodb.client.MongoCollection
 import core.MongoDB
-import org.litote.kmongo.*
+import org.litote.kmongo.getCollection
 
 object BlogDB {
     val db = MongoDB.conn.getDatabase("blog")
