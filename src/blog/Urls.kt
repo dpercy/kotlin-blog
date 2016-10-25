@@ -3,11 +3,11 @@ package blog
 import auth.login
 import auth.logout
 import auth.signup
-import core.get
-import core.post
 import spark.Request
 import spark.Response
 import spark.TemplateEngine
+import spark.Spark.get
+import spark.Spark.post
 
 /**
  * Created by dpercy on 9/12/16.
